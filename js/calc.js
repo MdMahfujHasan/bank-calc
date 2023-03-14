@@ -13,5 +13,13 @@ document.getElementById('withdraw-btn').addEventListener('click', function () {
     document.getElementById('withdraw-amount').innerText = withdraw + inputWithdraw;
     const balance = parseFloat(document.getElementById('balance-amount').innerText);
     document.getElementById('balance-amount').innerText = balance - inputWithdraw;
+    if (balance < inputWithdraw) {
+        alert("Can't withdraw more than your existing balance.");
+        return;
+    }
+    else if (isNaN(inputWithdraw)) {
+        alert("Please provide a numeric value.");
+        return;
+    }
     document.getElementById('input-withdraw').value = '';
 })
